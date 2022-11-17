@@ -1,5 +1,7 @@
 const pertanyaan = document.getElementById("pertanyaan")
 const jawaban = document.getElementById("jawaban")
+const loaders = document.getElementById("loaders")
+const container = document.getElementsByClassName("container")
 
 let quest = 0
 
@@ -18,6 +20,7 @@ pertanyaan.innerHTML = botSay()[0]
 let usersData = []
 
 function botStart() {
+    if(jawaban.value.length < 1) return alert("Mohon isi jawabannya terlabih dahulu ") 
     quest++
     if(quest === 1) {
        botDelay({nama: jawaban.value})
@@ -35,10 +38,13 @@ function botStart() {
 }
 
 function botDelay(jawabanUser) {
-    console.log({usersData: usersData})
+    loaders.style.display = "block"
+    container[0].style.filter = "blur(8px)"
     setTimeout(() => {
         pertanyaan.innerHTML = botSay(jawabanUser)[quest]
-    }, [1500])
+        loaders.style.display = "none"
+    container[0].style.filter = "none"
+    }, [1000])
     usersData.push(jawaban.value)
     jawaban.value = ""
 }
@@ -49,6 +55,7 @@ function finishing() {
 }
 
 function botEnd() {
-    window.location.reload()
+    alert(`Terima kasih ${usersData[0]} sudah berkunjung, anda akan diarahkan kembali ke halaman utama`)
     jawaban.value = ""
+    window.location.reload()
 }
