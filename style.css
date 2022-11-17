@@ -5,7 +5,35 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    scroll-behavior: smooth;
 }
+
+ul {
+    display: flex;
+    gap: 10px;
+    background: #222;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    display: flex;
+    padding: 12px;
+    list-style-type: none;
+}
+
+li > a {
+    color: #777777;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+li > a:hover {
+    color: white;
+    transition: .3s all ease-in-out;
+}
+
 .container {
     width: 500px;
     margin: 0 auto;
@@ -85,4 +113,20 @@ button:hover {
         transform: rotate(360deg);
     }
     
+}
+
+.aboutContainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    align-items: center;
+}
+
+
+
+.aboutWrapper {
+    display: flex;
+    gap: 40px;
 }
